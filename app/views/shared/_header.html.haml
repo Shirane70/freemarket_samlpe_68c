@@ -28,11 +28,18 @@
                           = link_to"Great-grandchild Menu", "#", id: "#"
 
         .listsLeft__item--second
-          = link_to "ブランド", "#", id: "brandBtn"
-      %ul.listsRight
-        %li.listsRight__item.listsRight__item--login
+          %ul.menu__first-level
+            %li
+              = link_to "ブランド", "#", id: "brandBtn"
+              %ul.menu__second-level
+                %li
+                  %a.init-right
+                    = link_to"Child Menu", "#", id: "#"
+
+      .listsRight
+        %ul.listsRight__item--login
           = link_to "ログイン", "#"
-        %li.listsRight__item.listsRight__item--new
+        %ul.listsRight__item--new
           = link_to "新規会員登録", "#"
 
 
