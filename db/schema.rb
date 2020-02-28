@@ -33,6 +33,26 @@ ActiveRecord::Schema.define(version: 2020_02_26_065410) do
     t.integer "security_number", null: false
   end
 
+  create_table "categories", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", limit: 25
+    t.integer "id"
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "items", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "brand_id"
+    t.integer "category_id"
+    t.string "name", limit: 25
+    t.integer "price"
+    t.string "description"
+    t.string "state"
+    t.string "postage", limit: 25
+    t.string "reigion"
+    t.string "shipping_days", limit: 25
+  end
+
   create_table "sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
