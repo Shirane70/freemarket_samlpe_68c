@@ -46,7 +46,6 @@
 |------|----|-------|
 |name|string|null :false|
 ### Association
-- has_many :searches
 - has_many :items
 
 ## brandsテーブル
@@ -54,7 +53,6 @@
 |------|----|-------|
 |name|string|null :false|
 ### Association
-- has_many :searches
 - has_many :items
 
 ## itemsテーブル
