@@ -37,19 +37,9 @@
 |user_id|integer|foreign_key :true|
 |customer_id|interger|null: false|
 |card_number|integer|null: false|
-
 ### Association
 - belongs_to :user
 
-
-## searchesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category_id|integer|foreign_key :true|
-|brand_id|integer|foreign_key :true|
-### Association
-- belongs_to :category
-- belongs_to :brand
 
 ## categoriesテーブル
 |Column|Type|Options|
