@@ -80,11 +80,9 @@
         display: flex;
         list-style: none;
         height: 32px;
-
         a{
           text-decoration: none;
           color: rgb(88, 88, 88);
-
           &:hover{
             color: rgb(255, 187, 0);
           }
@@ -115,13 +113,14 @@
                 }
               }
             }
+            text-decoration: none;
             ul.menu__second-level {
               background-color: #fff;
               list-style-type: none;
               position: absolute;
               margin-top: 20px;
               margin-left: -20px;
-              border: solid 1px #3CCACE;
+              border: solid 1px #f8f8f8;
               li {
                 position: relative;
                 &:hover {
@@ -149,7 +148,7 @@
                 position: absolute;
                 margin-top: -45px;
                 margin-left: 200px;
-                border: solid 1px #3CCACE;
+                border: solid 1px #f8f8f8;
                 li {
                   position: relative;
                   &:hover {
@@ -178,7 +177,7 @@
                   position: absolute;
                   margin-top: -45px;
                   margin-left: 200px;
-                  border: solid 1px #3CCACE;
+                  border: solid 1px #f8f8f8;
                   li {
                     position: relative;
                     &:hover {
