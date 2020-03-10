@@ -36,14 +36,14 @@
                     = link_to"Child Menu", "#", id: "#"
       .listsRight
         -if user_signed_in?
-          %li.listsRight__item.listsRight__item--login
+          %li.listsRight__item.listsRight__item--first
             = link_to "ログアウト", destroy_user_session_path, method: :delete
-          %li.listsRight__item
+          %li.listsRight__item--second
             = link_to "マイページ", "/users"
         - else
-          %li.listsRight__item.listsRight__item--login
+          %li.listsRight__item.listsRight__item--first
             = link_to "ログイン", new_user_session_path
-          %li.listsRight__item.listsRight__item--new
+          %li.listsRight__item.listsRight__item--second
             = link_to "新規会員登録", "signup_users"
 
 
