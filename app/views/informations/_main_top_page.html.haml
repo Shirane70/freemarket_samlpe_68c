@@ -106,7 +106,7 @@
           .productList
             = link_to information_path(item.id), method: :get do
               .product__info
-                %h3.name
+                .name
                   = item.name 
                 .product__info__image
                   = image_tag(item.images.first.image.url, resize: '188x188')
