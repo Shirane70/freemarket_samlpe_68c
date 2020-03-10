@@ -4,9 +4,11 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new  
+    @item = Item.new
     @item.images.build
+    #@item.categories.build
     # @item.build_images
+    
   end
 
   def create
@@ -51,6 +53,7 @@ class ItemsController < ApplicationController
       :region, 
       :shipping_days, 
       :price, 
+      #categories_attributes: [:id, :category],
       images_attributes: [:id, :image]
     ).merge(seller_id: current_user.id)
   end

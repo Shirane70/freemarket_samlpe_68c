@@ -39,29 +39,30 @@
               必須
           = form.text_area :description, placeholder: "商品の説明（必須 1,000文字以内）", class: "explain_product"
       .product_information_container
-        .product_text
-          商品の詳細
-        .product_Box
-          .topBox
-            .leftBox
-              カテゴリー
-            .rightBox
-              必須
-          = form.select :category_id, [['選択してください', 1], ['レディース', 2], ['メンズ', 3], ['ベビー', 4]], {}, {class: "selectBox"}
-        .product_Box
-          .topBox
-            .leftBox
-              ブランド
-            .rightBox-n
-              任意
-          = form.text_field :brand, placeholder: "シャネル", class: "product_name"
-        .product_Box
-          .topBox
-            .leftBox
-              商品の状態
-            .rightBox
-              必須
-          = form.select :state, [['選択してください', 1], ['新品', 2], ['中古', 3], ['パチモン', 4]], {}, {class: "selectBox"}
+        = form.fields_for :categories do |category|
+          .product_text
+            商品の詳細
+          .product_Box
+            .topBox
+              .leftBox
+                カテゴリー
+              .rightBox
+                必須
+            = form.select :category, [['選択してください', 1], ['レディース', 2], ['メンズ', 3], ['ベビー', 4]], {}, {class: "selectBox"}
+          .product_Box
+            .topBox
+              .leftBox
+                ブランド
+              .rightBox-n
+                任意
+            = form.text_field :brand, placeholder: "シャネル", class: "product_name"
+          .product_Box
+            .topBox
+              .leftBox
+                商品の状態
+              .rightBox
+                必須
+            = form.select :state, [['選択してください', 1], ['新品', 2], ['中古', 3], ['パチモン', 4]], {}, {class: "selectBox"}
       .product_information_container
         .product_text
           配送について
