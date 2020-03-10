@@ -45,8 +45,8 @@
 |------|----|-------|
 |seller_id|integer|foreign_key :true|
 |buyer_id|integer|foreign_key :true|
+|category_id|integer|foreign_key :true|
 |brand|string|null: false|
-|category|string|null: false|
 |name|string|null: false|
 |description|text|null: false|
 |state|text|null: false|
@@ -57,7 +57,9 @@
 ### Association
 - belongs_to :seller
 - belongs_to :buyer
+- belongs_to:category
 - has_many :images
+
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -66,3 +68,8 @@
 |image|text|unique: true|
 ### Association
 - belongs_to :item
+
+### categoriesテーブル
+|type|string|null: false|
+### Association
+- has_many :items

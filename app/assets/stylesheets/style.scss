@@ -270,7 +270,7 @@
         margin-left: auto;
         display: flex;
         height: 32px;
-        .listsRight__item--first{
+        .listsRight__item--login{
           padding: 0 16px 0 0;
         }
         a{
@@ -279,6 +279,10 @@
         }
         .listsRight__item--new{
           padding-left: 16px;
+        }
+        a{
+          text-decoration: none;
+          color: rgb(88, 88, 88);
         }
       }
     }
