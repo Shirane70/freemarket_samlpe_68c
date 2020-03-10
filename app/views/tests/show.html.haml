@@ -57,7 +57,7 @@
           %p 
           = form_with url: done_tests_path do
             :plain
-            %script{type: "text/javascript", src: "https://checkout.pay.jp", class:"payjp-button", "data-text": "購入する", "data-key": "pk_test_0b178b2dc43956d9e15a85ab"}
+            %script{type: "text/javascript", src: "https://checkout.pay.jp", class:"payjp-button", "data-text": "購入する", "data-key": ENV['PAYJP_PRIVATE_KEY']}
 
     .mains__footer
       %ul.mains__footer__content

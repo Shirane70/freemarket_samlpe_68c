@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :signup_users, only: [:index, :create] do
     collection do
       get 'step1'
+      post "step1"
       post 'step2'  #入力が全て完了  #登録完了後
       get 'complete' #登録完了後
     end
@@ -36,5 +37,5 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
-  
+
 end
