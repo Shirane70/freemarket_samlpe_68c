@@ -100,7 +100,7 @@
                 .item-delete-btn
                 =link_to "削除する",information_path, method: :delete, class: 'item-delete-btn'
             .buyer_btn
-              %a.item-buy-btn{href: "tests/#{@item_id}"}
+              %a.item-buy-btn{href: item_path}
                 購入画面に進む
 
       %ul.links

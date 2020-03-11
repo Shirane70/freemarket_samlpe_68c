@@ -11,14 +11,19 @@
       .mains__main__item
         .mains__main__item__a                    
           %h3
-            = image_tag "https://static.mercdn.net/thumb/photos/m42573841069_1.jpg?1581924969"
+            = image_tag(@item.images.first.image.url)
           .mains__main__item__a__detail
             %p.main-item-name
-              ミネラルウォーター
+              =@item.name
             %p.item-item-price
-              %span ¥2,180
-              %span.main-item-price-fee
-                税込）送料込み
+              %span ¥
+              =@item.price
+              %span (税込)
+              -if @item.postage == "2"
+                送料込み
+              -else  
+                着払い
+
       .mains__main__item1
         .mains__main__item1__b
           = form_with(url: "", local: true, method: :post, class: "main-item1__b__buy") do |f|
@@ -26,8 +31,9 @@
               %li.buy-price
                 .buy-price__cell 支払い金額
                 .buy-price__pay
-                  %span.buy-price__pay__amount
-                    ¥2,180
+                  %span.buy-price__pay__amount 
+                    ¥
+                    =@item.price
       .mains__main__item1
         .mains__main__item1__c
           = form_with( url: "", local: true, method: :post, class: "main-item1__c__buy" ) do |f|
@@ -42,7 +48,7 @@
                         登録してください
       .mains__main__item1
         .mains__main__item1__d
-          = form_with(url: "", local: true, method: :post, class: "mains__main__item1__d__buy") do |f|
+          = form_with(url: done_tests_path, local: true, method: :post, class: "mains__main__item1__d__buy") do |f|
             %ul.mains__main__item1__d__buy__place
               %li.mains__main__item1__d__buy__place__info
                 .buy-means
@@ -55,7 +61,6 @@
       .mains__main__item1
         .mains__main__item1__e
           %p 
-          = form_with url: done_tests_path do
             :plain
             %script{type: "text/javascript", src: "https://checkout.pay.jp", class:"payjp-button", "data-text": "購入する", "data-key": "pk_test_0b178b2dc43956d9e15a85ab"}
 

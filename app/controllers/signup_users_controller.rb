@@ -27,7 +27,7 @@ class SignupUsersController < ApplicationController
     @user.build_address(session[:address_attributes_after_step1])  # ここでaddressモデルのsessionを引数で渡す。
     @user.build_address(user_params[:address_attributes])  # 今回のビューで入力された情報を代入。
     if @user.save
-      session[:id] = @user.id  #　ここでidをsessionに入れることでログイン状態に持っていく。
+      session[:id] = @user.id  #ここでidをsessionに入れることでログイン状態に持っていく。
       redirect_to complete_signup_users_path
     else
       render '/signup_users/step2'

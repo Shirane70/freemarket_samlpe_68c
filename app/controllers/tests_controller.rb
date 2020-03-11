@@ -8,7 +8,7 @@ class TestsController < ApplicationController
   def done
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-      amount: 1100, # 決済する値段
+      amount: @item.price, # 決済する値段
       card: params['payjp-token'], # フォームを送信すると生成されるトークン
       currency: 'jpy'
     )
