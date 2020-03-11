@@ -41,13 +41,14 @@
       .product_information_container
         .product_text
           商品の詳細
+      = form.fields_for :categories do |category|
         .product_Box
           .topBox
             .leftBox
               カテゴリー
             .rightBox
               必須
-          = form.select :category_id, [['選択してください', 1], ['レディース', 2], ['メンズ', 3], ['ベビー', 4]], {}, {class: "selectBox"}
+          = form.select :category, [['選択してください', 1], ['レディース', 2], ['メンズ', 3], ['ベビー', 4]], {}, {class: "selectBox"}
         .product_Box
           .topBox
             .leftBox

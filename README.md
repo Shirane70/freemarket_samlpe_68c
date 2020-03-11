@@ -58,14 +58,16 @@
 - belongs_to :seller
 - belongs_to :buyer
 - has_many :images
+- has_many :items_categories
 
-## imagesテーブル
+## items_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|integer||foreign_key :true|
-|image|text|unique: true|
+|category_id|integer||foreign_key :true|
 ### Association
-- belongs_to :item
+- belongs_to :items
+- belongs_to :categories
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -74,3 +76,12 @@
 |category|string|null: false|
 ### Association
 - has_many :items
+- has_many :items_categories
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer||foreign_key :true|
+|image|text|unique: true|
+### Association
+- belongs_to :item

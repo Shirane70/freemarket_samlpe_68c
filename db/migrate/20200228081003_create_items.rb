@@ -5,7 +5,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :seller_id, foreign_key: true
       t.integer :buyer_id
       t.string :brand
-      t.string :category_id, null: false
       t.string :name, null: false
       t.text :description, null: false
       t.text :state, null: false

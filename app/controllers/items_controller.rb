@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new  
     @item.images.build
+    @parents = Category.all.order("id ASC").limit(13)
     # @item.build_images
   end
 
@@ -43,7 +44,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(
       :brand, 
-      :category_id, 
       :name, 
       :description, 
       :state, 
@@ -51,7 +51,8 @@ class ItemsController < ApplicationController
       :region, 
       :shipping_days, 
       :price, 
-      images_attributes: [:id, :image]
+      images_attributes: [:id, :image],
+      categories_ids: []
     ).merge(seller_id: current_user.id)
   end
 end
