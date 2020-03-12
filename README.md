@@ -70,6 +70,6 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category|string|null: false|
+|category_name|string|null: false|
 ### Association
 - has_many :items
