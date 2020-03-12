@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item ,only: [:pay]
+
   def index
     @image = Image.find(1)
   end
@@ -13,6 +15,7 @@ class ItemsController < ApplicationController
     # Team.create(item_params)
     @item = Item.new(item_params)
     if @item.save
+
       # flash[:success] = "商品を登録しました"
       # session[:user_id] = @user.id # ログイン状態維持のためuser_idをsessionに保存
       
@@ -39,10 +42,28 @@ class ItemsController < ApplicationController
     end
   end
 
+  def pay
+    Payjp.api_key = 'sk_test_9c5b009b4c2db8f24416cfd2'
+    Payjp::Charge.create(
+      amount: @item.price, # 決済する値段
+      card: params['payjp-token'], # フォームを送信すると生成されるトークン
+      currency: 'jpy'
+    )
+    @item.update( buyer_id: current_user.id)
+    redirect_to done_items_path
+  end
+
+  def done
+  end
+
   private
   # def set_items
   #   @items = Item.find(params[:user_id])
   # end
+  def set_item
+    @item = Item.find_by(id: params[:id])
+  end
+
   def item_params
     params.require(:item).permit(
       :brand, 

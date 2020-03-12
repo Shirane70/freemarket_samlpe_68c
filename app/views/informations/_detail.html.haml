@@ -61,8 +61,8 @@
                       = @user.nickname
                 %tr
                   %th カテゴリー
-                    
                   %td
+                    =@category
                 %tr
                   %th ブランド
                   %td
@@ -74,23 +74,48 @@
                 %tr
                   %th 商品の状態
                   %td 
-                    =@item.state
+                    -if @item.state == "2"
+                      新品
+                    -elsif @item.state == "3"
+                      中古
+                    -elsif @item.state == "4"
+                      パチモン
+                    -else 
+                      選択してください
                     
                 %tr
                   %th 配送料の負担
                   %td 
-                    =@item.postage
-                    
+                    -if@item.postage == "2"
+                      送料込み
+                    -elsif @item.postage == "3"
+                      着払い
+                    -else 
+                    選択してください
                 %tr
                   %th 発送元の地域
                   %td
-                    =@item.region
+                    -if@item.region == "2"
+                      北海道
+                    -elsif @item.region == "3"
+                      東京
+                    -elsif @item.region == "4"
+                      愛知
+                    -else
+                      選択してください
                     
                 %tr
                   %th 発送日の目安
                   %td 
-                    =@item.shipping_days
-                    
+                    -if@item.shipping_days == "2"
+                      1~2日で発送
+                    -elsif @item.shipping_days == "3"
+                      2~3日で発送
+                    -elsif @item.shipping_days == "4"
+                      4~7日で発送
+                    -else 
+                      選択してください
+
           .page_manage
             .seller_btn
               - if user_signed_in? && current_user.id == @item.seller_id   
@@ -99,9 +124,11 @@
                 
                 .item-delete-btn
                 =link_to "削除する",information_path, method: :delete, class: 'item-delete-btn'
-            .buyer_btn
-              %a.item-buy-btn{href: item_path}
-                購入画面に進む
+
+              -else
+                .buyer_btn
+                  %a.item-buy-btn{href: item_path}
+                    購入画面に進む
 
       %ul.links
         %li

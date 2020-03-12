@@ -5,12 +5,7 @@ Rails.application.routes.draw do
   root to: "informations#index"
 
   resources :informations, only: [:index , :show, :destroy]
-  resources :tests, only: [:index , :show] do
-    collection do
-      post :done
-    end
-  end 
-
+  
 
   resources :users, only: :index do
     collection do
@@ -32,7 +27,8 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :new, :show, :create, :edit, :update] do
     collection do
-      post :done
+      post 'pay/:id'=>   'items#pay', as: 'pay'
+      get "done"=> 'items#done', as: 'done'
     end
   end
 

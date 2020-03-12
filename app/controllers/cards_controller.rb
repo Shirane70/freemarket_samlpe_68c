@@ -13,11 +13,11 @@ class CardsController < ApplicationController
 
   def show 
     if @card.present?
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = 'sk_test_9c5b009b4c2db8f24416cfd2'
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
 
-      @card_brand = @card_information.brand      
+      @card_brand = @card_information.brand
       case @card_brand
       when "Visa"
         @card_src = "logo-visa.png"
@@ -38,7 +38,7 @@ class CardsController < ApplicationController
 
 
   def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = 'sk_test_9c5b009b4c2db8f24416cfd2'
 
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -60,7 +60,7 @@ class CardsController < ApplicationController
   end
 
   def destroy 
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = 'sk_test_9c5b009b4c2db8f24416cfd2'
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     if @card.destroy 

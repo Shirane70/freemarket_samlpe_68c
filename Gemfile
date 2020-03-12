@@ -85,5 +85,5 @@ gem 'jquery-rails'
 gem 'payjp'
 gem 'ancestry'
 gem 'erb2haml'
-gem 'jquery-turbolinks'
-
+# gem 'jquery-turbolinks'
+gem 'dotenv-rails'
