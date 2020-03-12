@@ -36,7 +36,6 @@
 |------|----|-------|
 |user_id|integer|foreign_key :true|
 |customer_id|interger|null: false|
-|card_number|integer|null: false|
 ### Association
 - belongs_to :user
 

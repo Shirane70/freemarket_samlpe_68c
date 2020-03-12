@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2020_03_06_052447) do
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "customer_id", null: false
-    t.integer "card_number"
     t.string "card_id"
   end
 
@@ -48,8 +47,8 @@ ActiveRecord::Schema.define(version: 2020_03_06_052447) do
     t.integer "user_id"
     t.integer "seller_id"
     t.integer "buyer_id"
-    t.integer "category_id", null: false
     t.string "brand"
+    t.string "category_id", null: false
     t.string "name", null: false
     t.text "description", null: false
     t.text "state", null: false
