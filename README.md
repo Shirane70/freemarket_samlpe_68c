@@ -70,7 +70,6 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_id|integer||foreign_key :true|
 |category|string|null: false|
 ### Association
 - has_many :items
